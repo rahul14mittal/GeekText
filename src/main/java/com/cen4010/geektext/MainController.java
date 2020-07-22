@@ -24,7 +24,7 @@ public class MainController {
 		Books b = new Books();
 		
 		booksRepository.save(b);
-		return "Saved";
+		return "Added new book";
 	}
 	
 	@GetMapping(path="/getBook")
@@ -33,6 +33,12 @@ public class MainController {
 		return booksRepository.findAll();
 	}
 	
+	@GetMapping(path="/getAuthor")
+	public @ResponseBody Iterable<Author> getAuthors()
+	{
+		return authorRepository.findAll();
+	}
+
 	@PostMapping(path="/addAuthor")
 	public @ResponseBody String addNewAuthor (@RequestParam Integer authorNum, @RequestParam String authorLast,@RequestParam String authorFirst,@RequestParam String authorBio  )
 	{
