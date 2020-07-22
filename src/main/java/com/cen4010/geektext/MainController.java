@@ -11,11 +11,24 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 @Controller	// This means that this class is a Controller
 @RequestMapping(path="/demo") 
-public class Main {
+public class MainController {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
+	@Autowired
+	
+	private BooksRepository booksRepository;
+	
+	@PostMapping(path="/addBook")
+	public @ResponseBody String addNewBook ()
+	{
+		Books b = new Books();
+		
+		booksRepository.save(b);
+		return "Saved";
 	}
-
+	
+	@GetMapping(path="/getBook")
+	public @ResponseBody Iterable<Books> getAllBooks()
+	{
+		return booksRepository.findAll();
+	}
 }
