@@ -14,7 +14,8 @@ public class BooksService {
 
 	@Autowired
 	private BooksRepository booksRepository;
-
+	private AuthorRepository authorsRepository;
+	
 	public List<Books> getAllBooks() {
 		List<Books> books = new ArrayList<>();
 		booksRepository.findAll().forEach(books::add);
@@ -47,4 +48,20 @@ public class BooksService {
 		return books;
 	}
 
+	public List<Books> browseByBookCode(int bookCode) {
+		List<Books> books = new ArrayList<>();
+		booksRepository.findByBookCodeIs(bookCode).forEach(books::add);
+		return books;
+	}
+	
+	public List<Books> browseByAuthor(String authorLast) {
+		List<Books> books = new ArrayList<>();
+		Author author = authorsRepository.getAuthor(authorLast);
+		booksRepository.findByAuthorNumIs(author.getAuthorNum()).forEach(books::add);
+		return books;
+	}
+	
+	public void addBook(Books b) {
+		
+	}
 }

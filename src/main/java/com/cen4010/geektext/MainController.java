@@ -1,5 +1,6 @@
 package com.cen4010.geektext;
 
+import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,6 +56,16 @@ public class MainController {
 		return authorService.getAllAuthors();
 	}
 
+	@GetMapping("/getBookByISBN")
+	public List<Books> getBookByISBN(@RequestParam int isbn) {
+		return booksService.browseByBookCode(isbn);
+	}
+
+	@GetMapping("/getBookByAuthor")
+	public List<Books> getBookByAuthor(@RequestParam String authorLast) {
+		return booksService.browseByAuthor(authorLast);
+	}
+	
 	@PostMapping(path = "/addAuthor")
 	public @ResponseBody String addNewAuthor(@RequestParam Integer authorNum, @RequestParam String authorLast,
 			@RequestParam String authorFirst, @RequestParam String authorBio) {
@@ -67,6 +78,28 @@ public class MainController {
 		authorService.addAuthor(a);
 		return "Added new author";
 	}
+	
+	@PostMapping(path = "/addAuthor")
+	public @ResponseBody String addNewBook(@RequestParam Integer bookCode, @RequestParam Integer authorNum, @RequestParam String title, 
+			@RequestParam String publisherCode, @RequestParam Double price, @RequestParam String genre, @RequestParam Date yearPub,
+			@RequestParam Integer copiesSold, @RequestParam String bookDescription, @RequestParam Double averageRating) {
+		Books b = new Books();
+		b.setBookCode(bookCode);
+		b.setAuthorNum(authorNum);
+		b.setTitle(title);
+		b.setPublisherCode(publisherCode);
+		b.setPrice(price);
+		b.setGenre(genre);
+		b.setYearPub(yearPub);
+		b.setCopiesSold(copiesSold);
+		b.setBookDescription(bookDescription);
+		b.setAverageRating(averageRating);
+		
+	    booksService.addBook(b);
+		return "Added new book";
+	}
+	
+	
 
 	// -------------------------------------------
 
