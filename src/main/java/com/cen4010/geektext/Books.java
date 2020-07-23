@@ -10,27 +10,27 @@ import javax.persistence.Id;
 @Entity
 public class Books {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer bookCode;
-	
+
 	private Integer authorNum;
-	
+
 	private String title;
-	
+
 	private String publisherCode;
-	
+
 	private Double price;
-	
-	private String genre;
-	
+
+	private static String genre;
+
 	private Date yearPub;
-	
+
 	private Integer copiesSold;
-	
+
 	private String bookDescription;
-	
+
 	private Double averageRating;
-	
+
 	public Integer getBookCode() {
 		return bookCode;
 	}
@@ -71,7 +71,7 @@ public class Books {
 		this.price = price;
 	}
 
-	public String getGenre() {
+	public static String getGenre() {
 		return genre;
 	}
 
@@ -110,6 +110,5 @@ public class Books {
 	public void setAverageRating(Double averageRating) {
 		this.averageRating = averageRating;
 	}
-
 
 }

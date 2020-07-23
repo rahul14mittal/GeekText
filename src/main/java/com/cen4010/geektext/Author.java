@@ -8,15 +8,15 @@ import javax.persistence.Id;
 @Entity
 public class Author {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)	
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer authorNum;
-	
+
 	private String authorLast;
-	
+
 	private String authorFirst;
 
 	private String authorBio;
-	
+
 	public Integer getAuthorNum() {
 		return authorNum;
 	}
@@ -49,7 +49,4 @@ public class Author {
 		this.authorBio = authorBio;
 	}
 
-
-
-	
 }
