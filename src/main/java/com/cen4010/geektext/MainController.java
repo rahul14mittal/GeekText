@@ -26,10 +26,25 @@ public class MainController {
 		return booksService.getAllBooks();
 	}
 
-//	@RequestMapping(value = "/browseByGenre/{gen}", method = RequestMethod.GET)
-//	public List<Books> browseByGenre(@PathVariable String gen) {
-//		return booksService.browseByGenre(gen);
-//	}
+	@GetMapping("/topSellers")
+	public List<Books> getTopSellers() {
+		return booksService.getTopSellers();
+	}
+
+	@GetMapping("/browseByNum")
+	public List<Books> getXBooks(@RequestParam int x) {
+		return booksService.getXBooks(x);
+	}
+
+	@GetMapping("/browseByGenre")
+	public List<Books> browseByGenre(@RequestParam String genre) {
+		return booksService.browseByGenre(genre);
+	}
+
+	@GetMapping("/browseByRating")
+	public List<Books> browseByRating(@RequestParam Double rating) {
+		return booksService.browseByRating(rating);
+	}
 
 	// -------------------------------------------
 

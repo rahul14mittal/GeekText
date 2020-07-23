@@ -21,7 +21,7 @@ public class Books {
 
 	private Double price;
 
-	private static String genre;
+	private String genre;
 
 	private Date yearPub;
 
@@ -71,7 +71,7 @@ public class Books {
 		this.price = price;
 	}
 
-	public static String getGenre() {
+	public String getGenre() {
 		return genre;
 	}
 
