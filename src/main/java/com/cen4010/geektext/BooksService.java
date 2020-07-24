@@ -62,6 +62,6 @@ public class BooksService {
 	}
 	
 	public void addBook(Books b) {
-		
+		booksRepository.addBook(b);
 	}
 }

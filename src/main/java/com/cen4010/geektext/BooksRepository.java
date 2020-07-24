@@ -14,5 +14,7 @@ public interface BooksRepository extends JpaRepository<Books, Integer> {
 	
 	List<Books> findByAuthorNumIs(int authorNum);
 	
+	void addBook(Books book);
+	
 
 }
