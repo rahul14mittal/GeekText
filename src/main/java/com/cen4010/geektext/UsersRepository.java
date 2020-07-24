@@ -1,5 +1,7 @@
 package com.cen4010.geektext;
 
-public class UsersRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
+
+public interface UsersRepository extends JpaRepository<Author, Integer> {
 
 }

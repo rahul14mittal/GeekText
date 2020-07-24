@@ -20,6 +20,9 @@ public class MainController {
 
 	@Autowired
 	private AuthorService authorService;
+	
+	@Autowired
+	private ShoppingCartService shoppingCart;
 
 	// Book Browsing Feature Calls
 	@GetMapping("/getAllBooks")
