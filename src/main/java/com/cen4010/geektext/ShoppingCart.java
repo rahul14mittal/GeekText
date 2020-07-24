@@ -5,13 +5,17 @@ import javax.persistence.ForeignKey;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.IdClass;
 
 @Entity
+@IdClass (ShoppingCartID.class)
 public class ShoppingCart {
 		
+	@Id
 	private Integer userID;
 	
-	private Integer bookCode;
+	@Id
+	private Integer bookCode; 
 	
 	private Integer quantity;
 	
