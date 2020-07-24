@@ -12,7 +12,7 @@ public class Author {
 	private Integer authorNum;
 
 	private String authorLast;
-
+	
 	private String authorFirst;
 
 	private String authorBio;
