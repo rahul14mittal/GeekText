@@ -10,11 +10,11 @@ public interface BooksRepository extends JpaRepository<Books, Integer> {
 
 	List<Books> findByAverageRatingGreaterThan(Double rating);
 	
-	List<Books> findByBookCodeIs(int isbn);
+	List<Books> findByBookCodeIs(Integer isbn);
 	
-	List<Books> findByAuthorNumIs(int authorNum);
+	List<Books> findByAuthorNumIs(Integer authorNum);
 	
-	void addBook(Books book);
+	///void addBook(Books book);
 	
 
 }

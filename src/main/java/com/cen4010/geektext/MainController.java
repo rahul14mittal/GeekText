@@ -61,10 +61,10 @@ public class MainController {
 		return booksService.browseByBookCode(isbn);
 	}
 
-	@GetMapping("/getBookByAuthor")
+	/*@GetMapping("/getBookByAuthor")
 	public List<Books> getBookByAuthor(@RequestParam String authorLast) {
 		return booksService.browseByAuthor(authorLast);
-	}
+	}*/
 	
 	@PostMapping(path = "/addAuthor")
 	public @ResponseBody String addNewAuthor(@RequestParam Integer authorNum, @RequestParam String authorLast,
@@ -79,7 +79,7 @@ public class MainController {
 		return "Added new author";
 	}
 	
-	@PostMapping(path = "/addBook")
+	/*@PostMapping(path = "/addBook")
 	public @ResponseBody String addNewBook(@RequestParam Integer bookCode, @RequestParam Integer authorNum, @RequestParam String title, 
 			@RequestParam String publisherCode, @RequestParam Double price, @RequestParam String genre, @RequestParam Date yearPub,
 			@RequestParam Integer copiesSold, @RequestParam String bookDescription, @RequestParam Double averageRating) {
@@ -97,7 +97,7 @@ public class MainController {
 		
 	    booksService.addBook(b);
 		return "Added new book";
-	}
+	}*/
 	
 	
 
