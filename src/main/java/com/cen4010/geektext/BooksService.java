@@ -57,8 +57,8 @@ public class BooksService {
 	
 	/*public List<Books> browseByAuthor(String authorLast) {
 		List<Books> books = new ArrayList<>();
-		Author author = authorsRepository.getAuthor(authorLast);
-		booksRepository.findByAuthorNumIs(author.getAuthorNum()).forEach(books::add);
+		List<Author> author = authorsRepository.findAuthorByAuthor_LastIs(authorLast);
+		booksRepository.findByAuthorNumIs(author.get(0).getAuthorNum()).forEach(books::add);
 		return books;
 	}*/
 	

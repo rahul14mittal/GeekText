@@ -70,15 +70,15 @@ public class MainController {
 	}*/
 	
 	@PostMapping(path = "/addAuthor")
-	public @ResponseBody String addNewAuthor(@RequestParam Integer authorNum, @RequestParam String authorLast,
-			@RequestParam String authorFirst, @RequestParam String authorBio) {
+	public @ResponseBody String addNewAuthor(@RequestParam Integer author_num, @RequestParam String author_bio,
+			@RequestParam String author_first, @RequestParam String author_last) {
 		Author a = new Author();
-		a.setAuthorNum(authorNum);
-		a.setAuthorLast(authorLast);
-		a.setAuthorFirst(authorFirst);
-		a.setAuthorBio(authorBio);
-
-		authorService.addAuthor(a);
+		a.setAuthorNum(author_num);
+		a.setAuthorBio(author_bio);
+		a.setAuthorFirst(author_first);
+		a.setAuthorLast(author_last);
+		
+		authorService.addAuthor(author_num, author_bio, author_first, author_last);
 		return "Added new author";
 	}
 	
