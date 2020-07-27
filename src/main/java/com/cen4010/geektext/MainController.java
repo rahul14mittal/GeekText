@@ -113,7 +113,13 @@ public class MainController {
 	// User Review Feature Calls
 
 	
-	
+	@PostMapping("/addReview")
+	@ResponseBody
+	public String addReview(@RequestParam Integer reviewID, @RequestParam Integer bookCode, @RequestParam Integer userID, 
+			@RequestParam Double rating, @RequestParam String comment, @RequestParam Date datestamp) {
+		
+		return "Review Added";
+	}
 	
 	
 	
