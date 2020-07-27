@@ -26,7 +26,7 @@ public class MainController {
 	private ShoppingCartService shoppingCart;
 	
 	@Autowired
-	private ReviewsService reviewSerivce;
+	private ReviewsService reviewsService;
 
 	// Book Browsing Feature Calls
 	@GetMapping("/getAllBooks")
