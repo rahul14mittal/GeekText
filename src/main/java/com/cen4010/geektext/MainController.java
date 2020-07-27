@@ -23,6 +23,9 @@ public class MainController {
 	
 	@Autowired
 	private ShoppingCartService shoppingCart;
+	
+	@Autowired
+	private ReviewsService reviewSerivce;
 
 	// Book Browsing Feature Calls
 	@GetMapping("/getAllBooks")
@@ -108,6 +111,12 @@ public class MainController {
 
 	// User Review Feature Calls
 
+	
+	
+	
+	
+	
+	
 	// -------------------------------------------
 
 	// Shopping Cart Feature Calls
