@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -62,7 +63,7 @@ public class BooksService {
 		return books;
 	}*/
 	
-	/*public void addBook(Books b) {
-		booksRepository.addBook(b);
+	/*public void addBook(Integer book_code, Integer author_num, Double average_rating, String book_description, Integer copies_sold, String genre, Double price, Integer publisher_code) {
+		booksRepository.insertBook(book_code, author_num, average_rating, book_description, copies_sold, genre, price, publisher_code);
 	}*/
 }
