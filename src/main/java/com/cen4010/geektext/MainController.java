@@ -4,6 +4,7 @@ import java.sql.Date;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -120,6 +121,33 @@ public class MainController {
 	// -------------------------------------------
 
 	// Shopping Cart Feature Calls
+	@PostMapping("/addItem")
+	@ResponseBody
+	public String addItem(@RequestParam(name = "userId") Integer userId, @RequestParam(name = "bookCode") Integer bookCode) {
+		CartItem item = new CartItem();
+		item.setUserId(userId);
+		item.setBookCode(bookCode);
+		shoppingCart.addItem(item);
+		
+		return "Added item to cart";
+	}
+	
+	@DeleteMapping("/removeItem")
+	@ResponseBody
+	public String removeItem(@RequestParam(name = "userId") Integer userId, @RequestParam(name = "bookCode") Integer bookCode) {
+		CartItem item = new CartItem();
+		item.setUserId(userId);
+		item.setBookCode(bookCode);
+		shoppingCart.removeItem(item);
+		
+		return "Removed item from cart";
+	}
+	
+	@GetMapping("/listItems")
+	@ResponseBody
+	public List<CartItem> listItems(@RequestParam Integer userId){
+		return shoppingCart.listItems(userId);
+	}
 
 	// -------------------------------------------
 
