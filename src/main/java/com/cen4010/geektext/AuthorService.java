@@ -19,8 +19,6 @@ public class AuthorService {
 	}
 
 	public void addAuthor(Integer author_num, String author_bio , String author_first, String author_last) {
-		
 		authorRepository.insertAuthor(author_num, author_bio, author_first, author_last);
 	}
-	
 }

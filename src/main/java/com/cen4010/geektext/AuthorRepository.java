@@ -14,11 +14,10 @@ public interface AuthorRepository extends JpaRepository<Author, Integer> {
 	
 	//List<Author> findAuthorByAuthor_LastIs(String authorLast); 
 	
-	@Query(value = "INSERT INTO authors (author_num, age, author_bio, author_first, author_last)"
+	@Transactional
+	@Query(value = "INSERT INTO author (author_num, author_bio, author_first, author_last)"
 			+ "VALUES (:author_num, :author_bio, :author_first, :author_last)", nativeQuery = true)
 	@Modifying
 	void insertAuthor(@Param("author_num") Integer author_num, @Param("author_bio") String author_bio, 
 			@Param("author_first") String author_first, @Param("author_last") String author_last);
-	
-
 }
