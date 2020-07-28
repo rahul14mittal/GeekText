@@ -1,5 +1,6 @@
 package com.cen4010.geektext;
 
+import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -9,6 +10,7 @@ import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 
 @Service
 public class BooksService {
@@ -63,7 +65,9 @@ public class BooksService {
 		return books;
 	}*/
 	
-	/*public void addBook(Integer book_code, Integer author_num, Double average_rating, String book_description, Integer copies_sold, String genre, Double price, Integer publisher_code) {
-		booksRepository.insertBook(book_code, author_num, average_rating, book_description, copies_sold, genre, price, publisher_code);
-	}*/
+	public void addBook(Integer bookCode, Integer authorNum, String title, String publisherCode, 
+			Double price, String genre, Date yearPub, Integer copiesSold, String bookDescription, Double averageRating) {
+		booksRepository.insertBook(bookCode, authorNum, title, publisherCode, price, genre, yearPub, 
+				copiesSold, bookDescription, averageRating);
+	}
 }

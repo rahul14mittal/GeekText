@@ -89,25 +89,25 @@ public class MainController {
 		return "Added new author";
 	}
 	
-	/*@PostMapping(path = "/addBook")
-	public @ResponseBody String addNewBook(@RequestParam Integer bookCode, @RequestParam Integer authorNum, @RequestParam String title, 
-			@RequestParam String publisherCode, @RequestParam Double price, @RequestParam String genre, @RequestParam Date yearPub,
-			@RequestParam Integer copiesSold, @RequestParam String bookDescription, @RequestParam Double averageRating) {
+	@PostMapping(path = "/addBook")
+	public @ResponseBody String addNewBook(@RequestParam Integer book_code, @RequestParam Integer author_num, @RequestParam String title, 
+			@RequestParam String publisher_code, @RequestParam Double price, @RequestParam String genre, @RequestParam Date year_pub,
+			@RequestParam Integer copies_sold, @RequestParam String book_description, @RequestParam Double average_rating) {
 		Books b = new Books();
-		b.setBookCode(bookCode);
-		b.setAuthorNum(authorNum);
+		b.setBookCode(book_code);
+		b.setAuthorNum(author_num);
 		b.setTitle(title);
-		b.setPublisherCode(publisherCode);
+		b.setPublisherCode(publisher_code);
 		b.setPrice(price);
 		b.setGenre(genre);
-		b.setYearPub(yearPub);
-		b.setCopiesSold(copiesSold);
-		b.setBookDescription(bookDescription);
-		b.setAverageRating(averageRating);
+		b.setYearPub(year_pub);
+		b.setCopiesSold(copies_sold);
+		b.setBookDescription(book_description);
+		b.setAverageRating(average_rating);
 		
-	    booksService.addBook(b);
+	    booksService.addBook(book_code, author_num, title, publisher_code, price, genre, year_pub, copies_sold, book_description, average_rating);
 		return "Added new book";
-	}*/
+	}
 	
 	
 
