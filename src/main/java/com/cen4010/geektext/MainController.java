@@ -27,6 +27,9 @@ public class MainController {
 	
 	@Autowired
 	private ReviewsService reviewsService;
+	
+	@Autowired
+	private UsersService userService;
 
 	// Book Browsing Feature Calls
 	@GetMapping("/getAllBooks")
@@ -156,5 +159,9 @@ public class MainController {
 	}
 
 	// -------------------------------------------
-
+	// Users feature calls
+	@GetMapping("/getAllUsers")
+	public List<Users> getAllUsers() {
+		return userService.getAllUsers();
+	}
 }
