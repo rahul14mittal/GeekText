@@ -20,7 +20,7 @@ public interface BooksRepository extends JpaRepository<Books, Integer> {
 	
 	List<Books> findByBookCodeIs(Integer book_code);
 	
-	//List<Books> findByAuthor_NumIs(Integer author_num);
+	List<Books> findByAuthorNumIs(Integer author_num);
 	
 
 	@Transactional

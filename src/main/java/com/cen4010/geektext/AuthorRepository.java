@@ -12,7 +12,7 @@ import org.springframework.data.repository.query.Param;
 public interface AuthorRepository extends JpaRepository<Author, Integer> {
 
 	
-	//List<Author> findAuthorByAuthor_LastIs(String authorLast); 
+	List<Author> findAuthorByAuthorLastIs(String author_last); 
 	
 	@Transactional
 	@Query(value = "INSERT INTO author (author_num, author_bio, author_first, author_last)"

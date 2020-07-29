@@ -71,10 +71,10 @@ public class MainController {
 		return booksService.browseByBookCode(isbn);
 	}
 
-	/*@GetMapping("/getBookByAuthor")
-	public List<Books> getBookByAuthor(@RequestParam String authorLast) {
-		return booksService.browseByAuthor(authorLast);
-	}*/
+	@GetMapping("/getBookByAuthor")
+	public List<Books> getBookByAuthor(@RequestParam String author_last) {
+		return booksService.browseByAuthor(author_last);
+	}
 	
 	@PostMapping(path = "/addAuthor")
 	public @ResponseBody String addNewAuthor(@RequestParam Integer author_num, @RequestParam String author_bio,

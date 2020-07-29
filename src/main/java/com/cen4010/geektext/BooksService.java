@@ -58,12 +58,12 @@ public class BooksService {
 		return books;
 	}
 	
-	/*public List<Books> browseByAuthor(String authorLast) {
+	public List<Books> browseByAuthor(String author_last) {
 		List<Books> books = new ArrayList<>();
-		List<Author> author = authorsRepository.findAuthorByAuthor_LastIs(authorLast);
+		List<Author> author = authorsRepository.findAuthorByAuthorLastIs(author_last);
 		booksRepository.findByAuthorNumIs(author.get(0).getAuthorNum()).forEach(books::add);
 		return books;
-	}*/
+	}
 	
 	public void addBook(Integer bookCode, Integer authorNum, String title, String publisherCode, 
 			Double price, String genre, Date yearPub, Integer copiesSold, String bookDescription, Double averageRating) {

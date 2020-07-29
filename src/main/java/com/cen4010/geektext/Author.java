@@ -9,45 +9,44 @@ import javax.persistence.Id;
 public class Author {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Integer author_num;
+	private Integer authorNum;
 	
-	private String author_bio;
+	private String authorBio;
 
-	private String author_first;
+	private String authorFirst;
 	
-	private String author_last;
-	
+	private String authorLast;
 
 	public Integer getAuthorNum() {
-		return author_num;
+		return authorNum;
 	}
 
 	public void setAuthorNum(Integer authorNum) {
-		this.author_num = authorNum;
-	}
-
-	public String getAuthorLast() {
-		return author_last;
-	}
-
-	public void setAuthorLast(String authorLast) {
-		this.author_last = authorLast;
-	}
-
-	public String getAuthorFirst() {
-		return author_first;
-	}
-
-	public void setAuthorFirst(String authorFirst) {
-		this.author_first = authorFirst;
+		this.authorNum = authorNum;
 	}
 
 	public String getAuthorBio() {
-		return author_bio;
+		return authorBio;
 	}
 
 	public void setAuthorBio(String authorBio) {
-		this.author_bio = authorBio;
+		this.authorBio = authorBio;
 	}
 
+	public String getAuthorFirst() {
+		return authorFirst;
+	}
+
+	public void setAuthorFirst(String authorFirst) {
+		this.authorFirst = authorFirst;
+	}
+
+	public String getAuthorLast() {
+		return authorLast;
+	}
+
+	public void setAuthorLast(String authorLast) {
+		this.authorLast = authorLast;
+	}
+	
 }
