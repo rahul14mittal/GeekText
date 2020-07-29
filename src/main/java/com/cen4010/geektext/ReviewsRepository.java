@@ -10,7 +10,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 public interface ReviewsRepository extends JpaRepository<Reviews, Integer> {
 	@Transactional
-	@Query(value = "INSERT INTO reviews (reviewid, book_code, comment, datestamp, rating, userid"
+	@Query(value = "INSERT INTO reviews (reviewid, book_code, comment, datestamp, rating, userid)"
 	+ "VALUES (:reviewid, :book_code, :comment, :datestamp, :rating, :userid)", nativeQuery = true)
 	@Modifying
 	void insertReview(@Param("reviewid") Integer reviewid, @Param("book_code") Integer book_code, @Param("comment") 
