@@ -15,9 +15,9 @@ To run:
     * File -> Open projects from file systems
     * Select GeekText folder
     * Right click on Project -> Configure build path -> resolve Java and Maven dependencies
-3. Start MySQL server
-4. Run Java Application
-    * Go to localhost:8080/demo
-    * Run API calls using Postman
-
-
+4. Start MySQL server
+    * Create empty schema 'geektext'
+5. Edit src/main/resources/pom.xml
+    * Update username, password for MySQL
+6. Run Java Application
+    * Run API calls using localhost:8080/demo/[call]
