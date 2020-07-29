@@ -28,7 +28,10 @@ public class BooksService {
 
 	public List<Books> getTopSellers() {
 		List<Books> books = new ArrayList<>();
+		booksRepository.findAll().forEach(books::add);
 		Page<Books> page = booksRepository.findAll(PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "copiesSold")));
+		
+		
 		books = page.getContent();
 		return books;
 	}

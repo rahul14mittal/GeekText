@@ -36,6 +36,11 @@ public class MainController {
 	public List<Books> getAllBooks() {
 		return booksService.getAllBooks();
 	}
+	
+	@GetMapping("/getAllReviews")
+	public List<Reviews> getAllReviews() {
+		return reviewsService.getAllReviews();
+	}
 
 	@GetMapping("/topSellers")
 	public List<Books> getTopSellers() {
