@@ -120,6 +120,14 @@ public class MainController {
 	@ResponseBody
 	public String addReview(@RequestParam Integer reviewID, @RequestParam Integer bookCode, @RequestParam Integer userID, 
 			@RequestParam Double rating, @RequestParam String comment, @RequestParam Date datestamp) {
+		Reviews r = new Reviews();
+		r.setReviewID(reviewID);
+		r.setBookCode(bookCode);
+		r.setUserID(userID);
+		r.setRating(rating);
+		r.setComment(comment);
+		r.setDatestamp(datestamp);
+		reviewsService.addReview(reviewID, bookCode, userID, rating, comment, datestamp);
 		
 		return "Review Added";
 	}

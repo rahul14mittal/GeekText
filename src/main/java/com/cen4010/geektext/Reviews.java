@@ -16,7 +16,12 @@ public class Reviews {
 	private Double rating;
 	private String comment;
 	private Date datestamp;
-	
+	public void setReviewID(Integer reviewID) {
+		this.reviewID = reviewID;
+	}
+	public Integer getReviewID() {
+		return reviewID;
+	}
 	public Double getRating() {
 		return rating;
 	}
