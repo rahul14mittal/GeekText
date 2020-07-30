@@ -16,6 +16,10 @@ public interface ReviewsRepository extends JpaRepository<Reviews, Integer> {
 	void insertReview(@Param("reviewid") Integer reviewid, @Param("book_code") Integer book_code, @Param("comment") 
 	String comment, @Param("datestamp") Date datestamp, @Param("rating") Double rating, @Param("userid") Integer userID);
 	
+	@Transactional
+	@Query(value ="SELECT AVG(rating) FROM reviews WHERE reviews.book_code = book_code" + "VALUES (:book_code)", nativeQuery = true) 
+	@Modifying
+	double pullAvg(@Param("book_code") Integer book_code);
 	
 	
 }
