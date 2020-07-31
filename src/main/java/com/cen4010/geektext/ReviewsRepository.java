@@ -1,6 +1,7 @@
 package com.cen4010.geektext;
 
 import java.sql.Date;
+import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
@@ -9,6 +10,9 @@ import org.springframework.data.repository.query.Param;
 import org.springframework.transaction.annotation.Transactional;
 
 public interface ReviewsRepository extends JpaRepository<Reviews, Integer> {
+	
+	List<Reviews> findByOrderByRatingDesc();
+	
 	@Transactional
 	@Query(value = "INSERT INTO reviews (reviewid, book_code, comment, datestamp, rating, userid)"
 	+ "VALUES (:reviewid, :book_code, :comment, :datestamp, :rating, :userid)", nativeQuery = true)
@@ -19,7 +23,9 @@ public interface ReviewsRepository extends JpaRepository<Reviews, Integer> {
 	@Transactional
 	@Query(value ="SELECT AVG(rating) FROM reviews WHERE reviews.book_code = book_code" + "VALUES (:book_code)", nativeQuery = true) 
 	@Modifying
-	double pullAvg(@Param("book_code") Integer book_code);
+	void pullAvg(@Param("book_code") Integer book_code);
+
+	
 	
 	
 }

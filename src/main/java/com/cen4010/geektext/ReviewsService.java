@@ -20,15 +20,15 @@ private Books books;
 		books.setAverageRating(reviewsRepository.pullAvg(bookCode));
 	}
 	
-	public double findAvg(Integer bookCode) {
-		return reviewsRepository.pullAvg(bookCode);
+	public void findAvg(Integer bookCode) {
+		reviewsRepository.pullAvg(bookCode);
 	}
 	
 	public List<Reviews> getAllReviews() {
 		List<Reviews> reviews = new ArrayList<>();
-		reviewsRepository.findAll().forEach(reviews::add);
-		Page<Reviews> page = reviewsRepository.findAll(PageRequest.of(0, 10, Sort.by(Sort.Direction.DESC, "rating")));
-		reviews = page.getContent();
+		reviewsRepository.findByOrderByRatingDesc().forEach(reviews::add);
+		
+		
 		return reviews;
 	}
 	
