@@ -14,14 +14,22 @@ import org.springframework.stereotype.Service;
 public class ReviewsService {
 @Autowired
 private ReviewsRepository reviewsRepository;
-private Books books;
+@Autowired
+private BooksRepository booksRepository;
 	public void addReview(Integer reviewID, Integer bookCode, Integer userID, Double rating, String comment, Date datestamp) {
 		reviewsRepository.insertReview(reviewID, bookCode, comment, datestamp, rating, userID);
-		//books.setAverageRating(reviewsRepository.pullAvg(bookCode));
+		this.updateAvgRating(bookCode, this.findAvg(bookCode));
 	}
 	
-	public void findAvg(Integer bookCode) {
-		reviewsRepository.pullAvg(bookCode);
+	public void updateAvgRating(Integer bookCode, Double rating) {
+		Books books = booksRepository.getOne(bookCode);
+		books.setAverageRating(rating);
+		booksRepository.save(books);
+		
+	}
+	
+	public Double findAvg(Integer bookCode) {
+		return reviewsRepository.pullAvg(bookCode).get(0);
 	}
 	
 	public List<Reviews> getAllReviews() {
