@@ -16,6 +16,8 @@ public class Users {
 	
 	private String userPass;
 
+	private String userCard;
+	
 	public Integer getUserId() {
 		return userId;
 	}
@@ -38,6 +40,14 @@ public class Users {
 
 	public void setUserPass(String userPass) {
 		this.userPass = userPass;
+	}
+	
+	public String getUserCard() {
+		return userCard;
+	}
+
+	public void setUserCard(String userCard) {
+		this.userCard = userCard;
 	}
 	
 }

@@ -177,4 +177,31 @@ public class MainController {
 	public List<Users> getAllUsers() {
 		return userService.getAllUsers();
 	}
+	
+	@PostMapping(path = "/addUser")
+	public @ResponseBody String addNewUser(@RequestParam Integer userId, @RequestParam String userName,
+			@RequestParam String userPass, @RequestParam String userCard) {
+		
+		Users u = new Users();
+		u.setUserId(userId);
+		u.setUserName(userName);
+		u.setUserPass(userPass);
+		u.setUserCard(userCard);
+	
+		userService.addUser(userId, userName, userPass, userCard);
+		
+		return "Created new User";
+	}
+	/*
+	@DeleteMapping("/updateUser")
+	@ResponseBody
+	public String updateUser(@RequestParam(name = "userId") Integer userId, @RequestParam(name = "userName") Integer userName) {
+		UserName user = new UserName();
+		user.setUserName(userName);
+		user.setUsePass(userPass);
+		userService.updateUser();
+		
+		return "Removed item from cart";
+	}
+	*/
 }
