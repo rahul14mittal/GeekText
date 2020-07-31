@@ -17,7 +17,7 @@ private ReviewsRepository reviewsRepository;
 private Books books;
 	public void addReview(Integer reviewID, Integer bookCode, Integer userID, Double rating, String comment, Date datestamp) {
 		reviewsRepository.insertReview(reviewID, bookCode, comment, datestamp, rating, userID);
-		books.setAverageRating(reviewsRepository.pullAvg(bookCode));
+		//books.setAverageRating(reviewsRepository.pullAvg(bookCode));
 	}
 	
 	public void findAvg(Integer bookCode) {
