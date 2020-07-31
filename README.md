@@ -34,18 +34,48 @@ How it works:
 
 Mapped Commands:
 1. /getAllBooks
+   -no parameter
 2. /getAllReviews
+   -no parameter
 3. /topSellers
+   -no parameter
 4. /browseByNum
+   - Integer numBooks
 5. /browseByGenre
+   - String genre
 6. /browseByRating
+   - Double rating
 7. /getAllAuthors
+   -no parameter
 8. /getBookByISBN
+   - Integer book_code
 9. /getBookByAuthor
+   - String author_last
 10. /addAuthor
+   - Integer author_num (primary key)
+   - String author_first
+   - String author_last
+   - String author_bio
 11. /addBook
+   - Integer book_code (primary key)
+   - Integer author_num
+   - String title
+   - Integer publisher_code
+   - Double price
+   - String genre
+   - Date year_pub
+   - Integer copies_sold
+   - String book_description
+   - Double average_rating (can be NULL)
 12. /addReview
+   - Integer review_id (primary key)
+   - Integer book_code
+   - Integer user_id
+   - Double rating
+   - String comment
+   - Date datestamp
 13. /addItem
+ 
 14. /removeItem
 15. /listItems
 16. /getAllUsers
