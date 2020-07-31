@@ -14,6 +14,8 @@ public class ShoppingCartService {
 
 	@Autowired
 	private ShoppingCartRepository shoppingCartRepository;
+	@Autowired
+	private BooksRepository booksRepository;
 
 	public void addItem(CartItem item) {
 		shoppingCartRepository.insertItem(item.getUserId(), item.getBookCode());
@@ -23,9 +25,16 @@ public class ShoppingCartService {
 		shoppingCartRepository.delete(item);
 	}
 	
-	public List<CartItem> listItems(int userId) {
-		List<CartItem> shoppingCart = new ArrayList<>();
-		shoppingCartRepository.findByUserIdIs(userId).forEach(shoppingCart::add);
+	public List<Books> listItems(int userId) {
+		List<CartItem> shoppingCartBookCodes = new ArrayList<>();
+		List<Books> shoppingCart = new ArrayList<>();
+		
+		shoppingCartRepository.findByUserIdIs(userId).forEach(shoppingCartBookCodes::add);
+		
+		for (int i = 0; i < shoppingCartBookCodes.size(); i++) {
+			booksRepository.findByBookCodeIs(shoppingCartBookCodes.get(i).getBookCode()).forEach(shoppingCart::add);
+		}
+		
 		return shoppingCart; 
 	}
 }

@@ -167,7 +167,7 @@ public class MainController {
 	
 	@GetMapping("/listItems")
 	@ResponseBody
-	public List<CartItem> listItems(@RequestParam Integer userId){
+	public List<Books> listItems(@RequestParam Integer userId){
 		return shoppingCart.listItems(userId);
 	}
 
