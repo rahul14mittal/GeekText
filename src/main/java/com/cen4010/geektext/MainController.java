@@ -137,7 +137,10 @@ public class MainController {
 		return "Review Added";
 	}
 	
-	
+	@GetMapping("/getAvgRating")
+	public Double getAverageRating(@RequestParam Integer bookCode) {
+		return reviewsService.findAvg(bookCode);
+	}
 	
 	
 	// -------------------------------------------
