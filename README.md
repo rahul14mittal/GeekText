@@ -39,7 +39,7 @@ Mapped Commands:
    -no parameter
 3. /topSellers
    -no parameter
-4. /browseByNum
+4. /browseByNum (for searching a certain number of books)
    - Integer numBooks
 5. /browseByGenre
    - String genre
@@ -67,15 +67,29 @@ Mapped Commands:
    - Integer copies_sold
    - String book_description
    - Double average_rating (can be NULL)
-12. /addReview
+12. /createUserReview
    - Integer review_id (primary key)
    - Integer book_code
    - Integer user_id
    - Double rating
    - String comment
    - Date datestamp
-13. /addItem
- 
-14. /removeItem
+13. /getAllReviews
+   - no parameter
+14. /getAvgRating
+   - bookCode (primary key)
+15. /addToCart
+   - userId (primary key)
+   - bookCode
+15. /removeItem
+   - userId (primary key)
+   - bookCode
 15. /listItems
+   - userId (primary key)
 16. /getAllUsers
+   - no parameter
+17. /addUser
+   - userId (primary key)
+   - userName
+   - userPass
+   - userCard
